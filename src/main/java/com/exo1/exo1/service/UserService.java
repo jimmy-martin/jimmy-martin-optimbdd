@@ -23,11 +23,11 @@ public class UserService {
     private UserMapper userMapper;
     
     public List<UserDto> findAll() {
-        return userMapper.toDtos(userRepository.findAll());
+        return userMapper.toDtos(userRepository.findAllWithProjects());
     }
 
     public UserDto findById(long id) {
-        return userMapper.toDto(userRepository.findByIdWithTask(id).orElse(null));
+        return userMapper.toDto(userRepository.findByIdWithProjects(id).orElse(null));
     }
 
     public UserDto save(UserDto userDto) {
